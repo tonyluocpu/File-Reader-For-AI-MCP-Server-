@@ -279,9 +279,6 @@ chmod +x word_reader_mcp_server.py
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
 
 ### Repository Information
 
