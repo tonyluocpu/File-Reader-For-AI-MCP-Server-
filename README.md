@@ -1,34 +1,52 @@
-# Word Reader MCP Server
+# AI File Bridge
 
-A Model Context Protocol (MCP) server that enables AI assistants to read and extract content from Microsoft Word documents (.docx files). This server is particularly useful for analyzing writing styles, extracting text content, and processing documents for AI-assisted writing tasks.
+A Model Context Protocol (MCP) server that enables AI assistants to read and extract content from file formats they cannot handle directly. Currently supports Microsoft Word documents (.docx), with plans to expand to PDF, Excel, PowerPoint, and other popular formats that AI assistants cannot process natively.
 
-[![GitHub](https://img.shields.io/badge/GitHub-Repository-blue?style=flat&logo=github)](https://github.com/tonyluocpu/word-reader-mcp-server)
+[![GitHub](https://img.shields.io/badge/GitHub-Repository-blue?style=flat&logo=github)](https://github.com/tonyluocpu/ai-file-bridge)
 [![Python](https://img.shields.io/badge/Python-3.8+-green?style=flat&logo=python)](https://python.org)
 [![MCP](https://img.shields.io/badge/MCP-Compatible-purple?style=flat)](https://modelcontextprotocol.io)
 
 ## Why This Tool Exists
 
-**AI assistants (LLMs) cannot directly read Microsoft Word documents.** They can only process plain text, markdown, and a few other formats. This MCP server bridges that gap by:
+**AI assistants (LLMs) cannot directly read many popular file formats.** They can only process plain text, markdown, and a few other formats. This MCP server bridges that gap by:
 
-- **Converting Word documents to readable text** that AI can understand
-- **Preserving document structure** (paragraphs, tables, formatting)
-- **Enabling AI analysis** of Word documents for writing assistance, content review, and more
+- **Converting various file formats to readable text** that AI can understand
+- **Preserving document structure** (paragraphs, tables, formatting, etc.)
+- **Enabling AI analysis** of documents for writing assistance, content review, and more
+- **Expanding AI capabilities** to handle files that were previously inaccessible
+
+### Current Support
+- ✅ **Microsoft Word** (.docx) - Full text extraction with formatting preservation
+
+### Planned Support
+- 🔄 **PDF Documents** (.pdf) - Text and structure extraction
+- 🔄 **Microsoft Excel** (.xlsx, .xls) - Spreadsheet data and formulas
+- 🔄 **Microsoft PowerPoint** (.pptx, .ppt) - Slide content and notes
+- 🔄 **Rich Text Format** (.rtf) - Formatted text documents
+- 🔄 **OpenDocument** (.odt, .ods, .odp) - Open source office formats
+- 🔄 **E-books** (.epub, .mobi) - Book content extraction
 
 ## Project Status
 
-✅ **Production Ready** - Fully tested and verified functionality  
+✅ **Production Ready** - Word document support fully tested and verified  
 ✅ **MCP Compatible** - Works with Claude, Cursor, and other MCP-compatible AI assistants  
 ✅ **No API Keys Required** - Runs independently without external dependencies  
-✅ **Cross-Platform** - Tested on macOS, Linux, and Windows
+✅ **Cross-Platform** - Tested on macOS, Linux, and Windows  
+🚀 **Expanding** - Actively developing support for additional file formats
 
 ## Features
 
+### Current (Word Documents)
 - 📄 **Read Word Documents**: Extract text content from .docx files
 - 🎨 **Formatting Preservation**: Maintain basic formatting information (bold, italic, underline)
 - 📊 **Table Support**: Extract content from tables within documents
 - 🌍 **Multi-language Support**: Works with documents in any language (tested with Chinese, English, and more)
+
+### Universal Features
 - 🔧 **MCP Compatible**: Integrates seamlessly with AI assistants like Claude, Cursor, and other MCP-compatible tools
 - 🖥️ **Cross-platform**: Works on macOS, Linux, and Windows
+- 🚀 **Extensible Architecture**: Built to easily add support for new file formats
+- 🔒 **No API Keys Required**: Runs completely independently
 
 ## Installation
 
@@ -41,8 +59,8 @@ A Model Context Protocol (MCP) server that enables AI assistants to read and ext
 
 1. Clone this repository:
 ```bash
-git clone https://github.com/tonyluocpu/word-reader-mcp-server.git
-cd word-reader-mcp-server
+git clone https://github.com/tonyluocpu/ai-file-bridge.git
+cd ai-file-bridge
 ```
 
 2. Install dependencies:
@@ -267,9 +285,9 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 ### Repository Information
 
-- **GitHub Repository**: [tonyluocpu/word-reader-mcp-server](https://github.com/tonyluocpu/word-reader-mcp-server)
-- **Clone URL**: `git clone https://github.com/tonyluocpu/word-reader-mcp-server.git`
-- **Issues**: [Report bugs or request features](https://github.com/tonyluocpu/word-reader-mcp-server/issues)
+- **GitHub Repository**: [tonyluocpu/ai-file-bridge](https://github.com/tonyluocpu/ai-file-bridge)
+- **Clone URL**: `git clone https://github.com/tonyluocpu/ai-file-bridge.git`
+- **Issues**: [Report bugs or request features](https://github.com/tonyluocpu/ai-file-bridge/issues)
 - **Stars**: ⭐ Star this repository if you find it useful!
 
 ## Acknowledgments
