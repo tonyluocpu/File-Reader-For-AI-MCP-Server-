@@ -17,10 +17,18 @@ A Model Context Protocol (MCP) server that enables AI assistants to read and ext
 
 ### Current Support
 - ✅ **Microsoft Word** (.docx) - Full text extraction with formatting preservation
+- ✅ **Microsoft Excel** (.xlsx, .xls, .xlsm) - Comprehensive spreadsheet data extraction
+
+### Excel Features Supported
+- ✅ **Formulas & Calculations** - Extract all Excel formulas and their results
+- ✅ **Cell Formatting** - Colors, borders, fonts, number formats, alignment
+- ✅ **Multiple Worksheets** - Read all sheets in a workbook
+- ✅ **Data Validation Rules** - Dropdown lists, constraints, validation messages
+- ✅ **Table Structure** - Preserve row/column relationships and data types
+- ✅ **Metadata** - Creator, creation date, modification date
 
 ### Planned Support
 - 🔄 **PDF Documents** (.pdf) - Text and structure extraction
-- 🔄 **Microsoft Excel** (.xlsx, .xls) - Spreadsheet data and formulas
 - 🔄 **Microsoft PowerPoint** (.pptx, .ppt) - Slide content and notes
 - 🔄 **Rich Text Format** (.rtf) - Formatted text documents
 - 🔄 **OpenDocument** (.odt, .ods, .odp) - Open source office formats
@@ -28,7 +36,7 @@ A Model Context Protocol (MCP) server that enables AI assistants to read and ext
 
 ## Project Status
 
-✅ **Production Ready** - Word document support fully tested and verified  
+✅ **Production Ready** - Word and Excel support fully tested and verified  
 ✅ **MCP Compatible** - Works with Claude, Cursor, and other MCP-compatible AI assistants  
 ✅ **No API Keys Required** - Runs independently without external dependencies  
 ✅ **Cross-Platform** - Tested on macOS, Linux, and Windows  
@@ -36,11 +44,19 @@ A Model Context Protocol (MCP) server that enables AI assistants to read and ext
 
 ## Features
 
-### Current (Word Documents)
-- 📄 **Read Word Documents**: Extract text content from .docx files
-- 🎨 **Formatting Preservation**: Maintain basic formatting information (bold, italic, underline)
+### Word Documents (.docx)
+- 📄 **Text Extraction**: Extract all text content with structure preservation
+- 🎨 **Formatting Preservation**: Bold, italic, underline, styles, alignment
 - 📊 **Table Support**: Extract content from tables within documents
-- 🌍 **Multi-language Support**: Works with documents in any language (tested with Chinese, English, and more)
+- 🌍 **Multi-language Support**: Works with documents in any language
+
+### Excel Files (.xlsx, .xls, .xlsm)
+- 📊 **Spreadsheet Data**: Extract all cell values and data types
+- 🧮 **Formulas & Calculations**: Read Excel formulas and their calculated results
+- 🎨 **Cell Formatting**: Colors, borders, fonts, number formats, alignment
+- 📋 **Multiple Worksheets**: Read all sheets in a workbook with metadata
+- ✅ **Data Validation**: Extract dropdown lists, constraints, and validation rules
+- 📈 **Table Structure**: Preserve row/column relationships and data integrity
 
 ### Universal Features
 - 🔧 **MCP Compatible**: Integrates seamlessly with AI assistants like Claude, Cursor, and other MCP-compatible tools
@@ -96,6 +112,11 @@ Once configured, you can ask your AI assistant to:
 - **"Convert this Word document to markdown format"**
 - **"What are the main topics discussed in this document?"**
 - **"Extract all the key points from this document"**
+- **"Read this Excel file and analyze the data"**
+- **"What formulas are used in this spreadsheet?"**
+- **"Extract all the data from this Excel workbook"**
+- **"Summarize the financial data in this spreadsheet"**
+- **"What validation rules are applied to this Excel file?"**
 
 #### Real-World Use Cases
 
@@ -105,6 +126,10 @@ Once configured, you can ask your AI assistant to:
 - **Writing Assistance**: Review and improve document content
 - **Research**: Process academic papers and reports
 - **Translation**: Extract content for translation workflows
+- **Financial Analysis**: Analyze spreadsheet data, formulas, and calculations
+- **Data Validation**: Review Excel validation rules and constraints
+- **Report Generation**: Extract data from Excel workbooks for reports
+- **Formula Analysis**: Understand and document Excel calculations
 
 #### Cursor IDE
 
