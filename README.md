@@ -2,6 +2,10 @@
 
 A Model Context Protocol (MCP) server that enables AI assistants to read and extract content from Microsoft Word documents (.docx files). This server is particularly useful for analyzing writing styles, extracting text content, and processing documents for AI-assisted writing tasks.
 
+[![GitHub](https://img.shields.io/badge/GitHub-Repository-blue?style=flat&logo=github)](https://github.com/tonyluocpu/word-reader-mcp-server)
+[![Python](https://img.shields.io/badge/Python-3.8+-green?style=flat&logo=python)](https://python.org)
+[![MCP](https://img.shields.io/badge/MCP-Compatible-purple?style=flat)](https://modelcontextprotocol.io)
+
 ## Why This Tool Exists
 
 **AI assistants (LLMs) cannot directly read Microsoft Word documents.** They can only process plain text, markdown, and a few other formats. This MCP server bridges that gap by:
@@ -9,6 +13,13 @@ A Model Context Protocol (MCP) server that enables AI assistants to read and ext
 - **Converting Word documents to readable text** that AI can understand
 - **Preserving document structure** (paragraphs, tables, formatting)
 - **Enabling AI analysis** of Word documents for writing assistance, content review, and more
+
+## Project Status
+
+✅ **Production Ready** - Fully tested and verified functionality  
+✅ **MCP Compatible** - Works with Claude, Cursor, and other MCP-compatible AI assistants  
+✅ **No API Keys Required** - Runs independently without external dependencies  
+✅ **Cross-Platform** - Tested on macOS, Linux, and Windows
 
 ## Features
 
@@ -30,7 +41,7 @@ A Model Context Protocol (MCP) server that enables AI assistants to read and ext
 
 1. Clone this repository:
 ```bash
-git clone https://github.com/yourusername/word-reader-mcp-server.git
+git clone https://github.com/tonyluocpu/word-reader-mcp-server.git
 cd word-reader-mcp-server
 ```
 
@@ -65,6 +76,17 @@ Once configured, you can ask your AI assistant to:
 - **"Extract all the tables from this Word file"**
 - **"Help me improve the grammar in this document"**
 - **"Convert this Word document to markdown format"**
+- **"What are the main topics discussed in this document?"**
+- **"Extract all the key points from this document"**
+
+#### Real-World Use Cases
+
+- **Content Analysis**: Analyze writing styles, themes, and structure
+- **Document Summarization**: Create concise summaries of long documents  
+- **Data Extraction**: Pull specific information from structured documents
+- **Writing Assistance**: Review and improve document content
+- **Research**: Process academic papers and reports
+- **Translation**: Extract content for translation workflows
 
 #### Cursor IDE
 
@@ -239,11 +261,23 @@ chmod +x word_reader_mcp_server.py
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+### Repository Information
+
+- **GitHub Repository**: [tonyluocpu/word-reader-mcp-server](https://github.com/tonyluocpu/word-reader-mcp-server)
+- **Clone URL**: `git clone https://github.com/tonyluocpu/word-reader-mcp-server.git`
+- **Issues**: [Report bugs or request features](https://github.com/tonyluocpu/word-reader-mcp-server/issues)
+- **Stars**: ⭐ Star this repository if you find it useful!
+
 ## Acknowledgments
 
 - Built using the [python-docx](https://python-docx.readthedocs.io/) library
 - Compatible with the [Model Context Protocol](https://modelcontextprotocol.io/) specification
 - Inspired by the need for better document processing in AI workflows
+- Tested and verified with real-world documents and AI assistants
 
 
 
