@@ -2,6 +2,14 @@
 
 A Model Context Protocol (MCP) server that enables AI assistants to read and extract content from Microsoft Word documents (.docx files). This server is particularly useful for analyzing writing styles, extracting text content, and processing documents for AI-assisted writing tasks.
 
+## Why This Tool Exists
+
+**AI assistants (LLMs) cannot directly read Microsoft Word documents.** They can only process plain text, markdown, and a few other formats. This MCP server bridges that gap by:
+
+- **Converting Word documents to readable text** that AI can understand
+- **Preserving document structure** (paragraphs, tables, formatting)
+- **Enabling AI analysis** of Word documents for writing assistance, content review, and more
+
 ## Features
 
 - 📄 **Read Word Documents**: Extract text content from .docx files
@@ -50,6 +58,14 @@ The server will run in stdio mode and wait for JSON-RPC requests.
 
 ### Integration with AI Assistants
 
+Once configured, you can ask your AI assistant to:
+
+- **"Read this Word document and summarize it"**
+- **"Analyze the writing style in this document"**
+- **"Extract all the tables from this Word file"**
+- **"Help me improve the grammar in this document"**
+- **"Convert this Word document to markdown format"**
+
 #### Cursor IDE
 
 Add the following to your Cursor MCP configuration:
@@ -80,6 +96,10 @@ Add to your Claude Desktop MCP configuration:
   }
 }
 ```
+
+#### Other MCP-Compatible AI Assistants
+
+This server works with any AI assistant that supports the Model Context Protocol (MCP). Check your AI assistant's documentation for MCP configuration instructions.
 
 ## Available Tools
 
@@ -198,16 +218,6 @@ word-reader-mcp-server/
 ```bash
 python3 test_mcp_server.py
 ```
-
-### Contributing
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Add tests if applicable
-5. Submit a pull request
-
-## Troubleshooting
-
 ### Common Issues
 
 **ImportError: No module named 'docx'**
@@ -225,11 +235,6 @@ chmod +x word_reader_mcp_server.py
 - Ensure Python 3.8+ is installed
 - Check that all dependencies are installed
 
-### Getting Help
-- Open an issue on GitHub
-- Check the troubleshooting section
-- Review the MCP documentation for your AI assistant
-
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
@@ -240,16 +245,5 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - Compatible with the [Model Context Protocol](https://modelcontextprotocol.io/) specification
 - Inspired by the need for better document processing in AI workflows
 
-## Changelog
 
-### v1.0.0 (2024-12-19)
-- Initial release
-- Basic document reading functionality
-- Formatting preservation
-- Table extraction support
-- MCP protocol compliance
-- Cross-platform compatibility
 
----
-
-**Made with ❤️ for the AI community**
