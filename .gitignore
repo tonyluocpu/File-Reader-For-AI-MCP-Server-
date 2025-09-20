@@ -157,3 +157,6 @@ test_documents/
 
 # Logs
 *.log
+__pycache__/
+*.pyc
+*.pyo

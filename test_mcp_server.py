@@ -11,8 +11,8 @@ from pathlib import Path
 def test_mcp_server():
     """Test the MCP server with the Word document"""
     
-    # Path to the Word document
-    doc_path = "/Users/default/Desktop/cutomized mcp/fiction/学园轻曲 (1).docx"
+    # Path to the Word document (replace with your actual path)
+    doc_path = "/path/to/your/document.docx"
     
     # Test request to read the Word document
     test_request = {
