@@ -74,11 +74,79 @@ Once configured, ask your AI assistant:
 
 ## Available Tools
 
-- `read_document` - Universal document reader for Word and Excel files
-- `read_word_document` - Extract text and formatting from Word documents
-- `read_excel_file` - Extract data, formulas, and formatting from Excel files
-- `list_supported_files` - Find all supported files in a directory
-- `get_supported_formats` - List all supported file formats
+The AI File Bridge provides 5 powerful tools for AI assistants:
+
+### 🔧 Core Reading Tools
+
+#### `read_document`
+**Universal document reader** - Automatically detects file type and reads accordingly
+- **Input**: `file_path` (required), `include_formatting`, `include_formulas`, `include_formatting_excel`, `include_data_validation`
+- **Output**: Structured data with text, tables, formatting, and metadata
+- **Use case**: When you don't know the file type or want automatic detection
+
+#### `read_word_document` 
+**Microsoft Word document reader** - Extracts text, formatting, and structure from .docx files
+- **Input**: `file_path` (required), `include_formatting` (optional)
+- **Output**: 
+  - Full document text with paragraph structure
+  - Table data with formatting
+  - Document metadata and properties
+- **Use case**: Reading reports, essays, documentation, or any Word document
+
+#### `read_excel_file`
+**Microsoft Excel file reader** - Comprehensive Excel data extraction with formulas and formatting
+- **Input**: `file_path` (required), `include_formulas`, `include_formatting`, `include_data_validation`
+- **Output**:
+  - Cell data with values and formulas
+  - Multiple worksheet support
+  - Cell formatting (colors, fonts, borders)
+  - Data validation rules and dropdown lists
+  - Chart and graph information
+- **Use case**: Analyzing spreadsheets, financial data, reports, or any Excel workbook
+
+### 🔍 Utility Tools
+
+#### `list_supported_files`
+**Directory scanner** - Finds all supported file formats in a directory
+- **Input**: `directory_path` (optional, defaults to current directory)
+- **Output**: List of supported files with metadata (name, size, type, modification date)
+- **Use case**: Discovering what files can be processed in a folder
+
+#### `get_supported_formats`
+**Format information** - Lists all currently supported file formats
+- **Input**: None required
+- **Output**: Dictionary of supported file extensions and their descriptions
+- **Use case**: Checking what file types the server can handle
+
+### 📊 Example Output Structure
+
+**Word Document Output:**
+```json
+{
+  "success": true,
+  "file_path": "document.docx",
+  "paragraphs": [...],
+  "tables": [...],
+  "metadata": {...}
+}
+```
+
+**Excel File Output:**
+```json
+{
+  "success": true,
+  "file_path": "workbook.xlsx",
+  "worksheets": [
+    {
+      "name": "Sheet1",
+      "data": [...],
+      "formulas": [...],
+      "formatting": [...],
+      "validation": [...]
+    }
+  ]
+}
+```
 
 ## Testing
 

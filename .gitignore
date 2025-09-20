@@ -4,6 +4,11 @@ __pycache__/
 *$py.class
 *.json
 
+# API Keys and Authentication
+.gemini/
+*.env
+.env.local
+
 # C extensions
 *.so
 

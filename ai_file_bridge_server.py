@@ -32,28 +32,32 @@ class AIFileBridgeServer:
         """Handle incoming MCP requests"""
         method = request.get("method")
         params = request.get("params", {})
+        request_id = request.get("id")
         
         if method == "initialize":
-            return await self._handle_initialize(params)
+            return await self._handle_initialize(params, request_id)
         elif method == "tools/list":
-            return await self._handle_tools_list()
+            return await self._handle_tools_list(request_id)
         elif method == "tools/call":
-            return await self._handle_tools_call(params)
+            return await self._handle_tools_call(params, request_id)
+        elif method and method.startswith("notifications/"):
+            # Handle notifications (no response needed)
+            return None
         else:
             return {
                 "jsonrpc": "2.0",
-                "id": request.get("id"),
+                "id": request_id if request_id is not None else "default-id",
                 "error": {
                     "code": -32601,
                     "message": f"Method not found: {method}"
                 }
             }
     
-    async def _handle_initialize(self, params: Dict[str, Any]) -> Dict[str, Any]:
+    async def _handle_initialize(self, params: Dict[str, Any], request_id: Any = None) -> Dict[str, Any]:
         """Handle initialization request"""
         return {
             "jsonrpc": "2.0",
-            "id": params.get("id"),
+            "id": request_id if request_id is not None else "default-id",
             "result": {
                 "protocolVersion": "2024-11-05",
                 "capabilities": {
@@ -66,10 +70,11 @@ class AIFileBridgeServer:
             }
         }
     
-    async def _handle_tools_list(self) -> Dict[str, Any]:
+    async def _handle_tools_list(self, request_id: Any = None) -> Dict[str, Any]:
         """Return list of available tools"""
         return {
             "jsonrpc": "2.0",
+            "id": request_id if request_id is not None else "default-id",
             "result": {
                 "tools": [
                     {
@@ -175,7 +180,7 @@ class AIFileBridgeServer:
             }
         }
     
-    async def _handle_tools_call(self, params: Dict[str, Any]) -> Dict[str, Any]:
+    async def _handle_tools_call(self, params: Dict[str, Any], request_id: Any = None) -> Dict[str, Any]:
         """Handle tool call requests"""
         tool_name = params.get("name")
         arguments = params.get("arguments", {})
@@ -194,7 +199,7 @@ class AIFileBridgeServer:
             else:
                 return {
                     "jsonrpc": "2.0",
-                    "id": params.get("id"),
+                    "id": request_id if request_id is not None else "default-id",
                     "error": {
                         "code": -32601,
                         "message": f"Tool not found: {tool_name}"
@@ -203,7 +208,7 @@ class AIFileBridgeServer:
             
             return {
                 "jsonrpc": "2.0",
-                "id": params.get("id"),
+                "id": request_id if request_id is not None else "default-id",
                 "result": {
                     "content": [
                         {
@@ -216,7 +221,7 @@ class AIFileBridgeServer:
         except Exception as e:
             return {
                 "jsonrpc": "2.0",
-                "id": params.get("id"),
+                "id": request_id if request_id is not None else "default-id",
                 "error": {
                     "code": -32603,
                     "message": f"Internal error: {str(e)}"
@@ -340,13 +345,14 @@ async def main():
             
             request = json.loads(line.strip())
             response = await server.handle_request(request)
-            print(json.dumps(response, ensure_ascii=False))
-            sys.stdout.flush()
+            if response is not None:  # Only print response if not None (notifications)
+                print(json.dumps(response, ensure_ascii=False))
+                sys.stdout.flush()
             
         except json.JSONDecodeError as e:
             error_response = {
                 "jsonrpc": "2.0",
-                "id": None,
+                "id": 1,
                 "error": {
                     "code": -32700,
                     "message": f"Parse error: {str(e)}"
@@ -355,9 +361,17 @@ async def main():
             print(json.dumps(error_response))
             sys.stdout.flush()
         except Exception as e:
+            # Try to get the ID from the request if possible
+            request_id = 1
+            try:
+                if 'request' in locals():
+                    request_id = request.get("id") or 1
+            except:
+                pass
+            
             error_response = {
                 "jsonrpc": "2.0",
-                "id": None,
+                "id": request_id if request_id is not None else "default-id",
                 "error": {
                     "code": -32603,
                     "message": f"Internal error: {str(e)}"
